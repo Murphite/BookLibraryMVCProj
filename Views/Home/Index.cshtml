@@ -1,0 +1,179 @@
+﻿@model BookLibrary.Models.ViewModels.IndexVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<Partial name="_IndexPartial" />
+
+
+<style>
+    body, html {
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .book-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .book-link {
+        text-decoration: none; /* Optional: Remove the underline for the link */
+        color: black; /* Optional: Set the color of the link text */
+    }
+
+    .ratings {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+
+    .tab-panel {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+    }
+
+   
+
+    /* .w3-row-padding .w3-col {
+        box-sizing: border-box;
+    }
+
+    .w3-col {
+        width: 100%;
+    } */
+
+    .tab-category .box-1 a {
+        border: 2px solid;
+        padding: 6px 18px;
+        border-radius: 35px;
+        display: flex-row;
+        width: 130px;
+        margin: 10px 15px   ;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        font-size: 15px;
+        
+    }
+
+    .tab-category {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 20px;
+        width:100%;
+        background: #eeeeee; 
+        position: relative;
+        
+    }
+
+    .tab-category .box-1{
+        margin: 9px 15px;
+    }
+
+    .gallery {
+        padding: 15px 0;
+    }
+
+    .card{
+        background: white;
+    }
+
+</style>
+
+<div style="margin-top: 20px"></div>
+<div style="display: flex; justify-content: center;">
+    <h4><b>What interest you?</b></h4>
+    <div style="margin-top: 15px"></div>
+</div>
+
+<div style="margin-top: 10px"></div>
+<div class="tab-panel">
+    <div style="padding-right: 30px;"><h4>Fiction Books</h4></div>
+    <div><h4>Non-Fiction Books</h4></div>
+    <div><h4>CD Genres</h4></div>
+</div>
+
+</div>
+
+<div class="tab-category">
+    <div class="box-1">
+        <a href="#" class="btn-1">Drama</a>
+        <a href="#" class="btn-1">Horror</a>
+        <a href="#" class="btn-1">Mystery</a>
+        <a href="#" class="btn-1">Sci-fi</a>
+        <a href="#" class="btn-1">Art</a>
+        <a href="#" class="btn-1">Biography</a>
+        <a href="#" class="btn-1">Sports</a>
+        <a href="#" class="btn-1">Travel</a>
+        <a href="#" class="btn-1">Blues</a>
+        <a href="#" class="btn-1">Classical</a>
+        <a href="#" class="btn-1">Folk</a>
+        <a href="#" class="btn-1">Hip-Hop</a>
+        <a href="#" class="btn-1">Rap</a>
+        <a href="#" class="btn-1">Reggae</a>
+        <a href="#" class="btn-1">Rock</a>
+    </div>
+
+    @* <div class="box-2">
+        <a href="#" class="btn-1">Art</a>
+        <a href="#" class="btn-1">Biography</a>
+        <a href="#" class="btn-1">Sports</a>
+        <a href="#" class="btn-1">Travel</a>
+    </div>
+
+    <div class="box-3">
+        <a href="#" class="btn-1">Blues</a>
+        <a href="#" class="btn-1">Classical</a>
+        <a href="#" class="btn-1">Folk</a>
+        <a href="#" class="btn-1">Hip-Hop</a>
+        <a href="#" class="btn-1">Rap</a>
+        <a href="#" class="btn-1">Reggae</a>
+        <a href="#" class="btn-1">Rock</a>
+    </div> *@
+</div>
+  
+</div>
+
+
+<div style="margin: 15px 0;">
+<div style="padding-left: 15px;">
+    <h5><b>New Releases </b><span>Books</span> 20 <span>CDs</span> 25</h5>
+</div>
+
+
+<section class="gallery min-vh-100">
+    <div class="container-fluid">
+        <div class="row row-cols-3 row-cols-md-4 row-cols-lg-6">
+            @foreach (var book in Model.Books)
+            {
+                <div class="col mb-4">
+                    <a asp-action="Details" asp-route-id="@book.Id" class="book-link">
+                        <div class="card h-100 d-flex flex-column" style="background: white;">
+                            <img src='@book.CoverImageUrl' asp-append-version="true" alt="Book Cover" class="card-img-top" style="height: 250px;">
+                            <div class="card-body p-2" style="line-height: 1;">
+                                <h6 class="card-title"><b>@book.Title -</b><small class="text-muted">@book.GenreType</small></h6>
+                                <h6 class="card-text books-lib">@book.Author</h6>
+                                <div class="star-rating" data-rating="3">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                                <p class="card-text"><small class="text-muted">Available</small></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

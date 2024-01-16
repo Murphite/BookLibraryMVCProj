@@ -1,0 +1,19 @@
+﻿@{
+    string name = string.IsNullOrEmpty(ViewBag.Name) ? "User" : ViewBag.Name;
+}
+
+<style>
+    body {
+        background-color: white;
+        color: black;
+    }
+</style>
+
+
+
+<div class="congrat-box">
+    <h1>Congratulations @name </h1>
+    <p>
+        An account confirmation link should be sent to you via the email you provided on registration, if the email is correct and still accessible to you.
+    </p>
+</div>

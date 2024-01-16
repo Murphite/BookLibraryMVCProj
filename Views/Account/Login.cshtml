@@ -1,0 +1,40 @@
+﻿@model UserToLoginVM
+@{
+    var returnUrl = ViewBag.ReturnUrl;
+}
+
+<style>
+    body{
+       background: #eeeeee;
+    }
+</style>
+
+<div class="container">
+    <main role="main" class="pb-1 mt-4">
+        <div class="auth-panel">
+            <div class="auth-panel-inner">
+                <div style="height: 100px;" class="flex-btn">
+                    <h2>Login here...</h2>
+                    <a asp-controller="Home" asp-action="Index">back to home</a>
+                </div>
+                <div asp-validation-summary="All"></div>
+
+                <form method="post" asp-action="Login" asp-controller="Account" asp-route-returnUrl="@returnUrl" autocomplete="off">
+                    <p><input asp-for="Email" placeholder="Email" autocomplete="off" /></p>
+
+                    <p><input asp-for="Password" placeholder="Password" autocomplete="off" /></p>
+
+                    <div class="forgot-password-panel flex-btn" style="height: 100px">
+                        <div><input type="checkbox" asp-for="RememberMe" />RememberMe</div>
+                        <div><a asp-action="ForgotPassword" asp-controller="Account">Forgot Password?</a></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                </form>
+
+                <p style="padding-top: 20px;">
+                    Don't have an account? Register <a asp-action="Register" asp-controller="Account">here</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</div>

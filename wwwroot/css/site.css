@@ -1,0 +1,387 @@
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: white;
+}
+
+
+
+footer {
+    margin-top: auto;
+}
+    
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    z-index: 3; /* Set z-index to appear beneath the pop-up */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    color: black;
+    padding: 20px;
+    border-radius: 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 4; /* Set z-index to appear on top of the overlay */
+}
+
+/* Thick black line */
+.hr1 {
+    border: 2px solid black;
+}
+
+h6 span {
+    color: gray;
+    font-size: 20px;
+}
+
+.search-bar input[type="search"] {
+    border: 2px solid black;
+    font-size: 17px;
+    margin: 0;
+    padding: 10px 130px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content:center;
+}
+
+
+.btn-2 {
+    background-color: black;
+    border: 2px solid black;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    padding: 10.7px 12px; 
+    /*position: absolute;
+    top: 169px;
+    left: 920px;
+    margin: 2px 2px;
+        width: 100px
+    display: inline-block;
+        
+    */
+}
+
+/* For BOOK PAGE */
+.btn-1 {
+    background-color: ;
+    border: 2px solid black;
+    color: black;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 3px 2px;
+    border-radius: 6px;
+    text-align: center;
+    width: 220px; /* Set a specific width for all buttons */
+    display: inline-block; /* Ensures buttons are on the same line */
+}
+
+.ratings {
+    line-height: 1.1em;
+}
+
+h6 span {
+    font-size: 15px;
+}
+
+h5 span {
+    font-size: 15px;
+}
+
+/*Base styling for all screen sizes */
+/*.w3-col {
+    box-sizing: border-box;
+}*/
+
+.tab-panel h4 {
+    padding-right: 200px;
+}
+
+@media only screen and (min-device-width: 500px) and (max-device-width: 480px) {
+    .tab-panel h4 {
+        padding-left: 400px;
+    }
+}
+
+
+.star-rating {
+    font-size: 24px;
+    color: #ddd;
+    /* Default star color */
+    display: inline-block;
+}
+
+/* Change the color of stars based on the rating */
+.star-rating span::before {
+    content: '\2605'; /* Unicode character for a solid star */
+    color: #000; /* Color for a filled star, adjust as needed */
+}
+
+/* Adjust the color of the stars for different rating levels */
+.star-rating[data-rating="1"] span::before {
+    color: #000;
+}
+
+.star-rating[data-rating="2"] span:nth-child(-n + 2)::before {
+    color: #000;
+}
+
+.star-rating[data-rating="3"] span:nth-child(-n + 3)::before {
+    color: #000;
+}
+
+.star-rating[data-rating="4"] span:nth-child(-n + 4)::before {
+    color: #000;
+}
+
+.star-rating[data-rating="5"] span:nth-child(-n + 5)::before {
+    color: #000;
+}
+
+.side-bar {
+    float: right;
+    width: 55%;
+    padding: 15px;
+    line-height: 2rem;
+    box-sizing: border-box;
+}
+
+.side-bar span {
+    font-size: 15px;
+}
+
+.side-bar-h3 {
+    font-size: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.main-block {
+    float: left;
+    width: 40%;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+
+/* Add a hover effect if you want */
+fa:hover {
+    opacity: 0.7;
+    /* reduce the opacity on hover */
+}
+
+
+
+   /*tab navigation*/
+    .login-logout-card .card-header {
+        padding: 0px 0px 12px 0px;
+    }
+
+    .login-logout-card ul.nav-tabs {
+        margin: 0px 0px -12px 0px;
+    }
+
+    .login-logout-card li.nav-item {
+        width: 50%;
+    }
+
+    .login-logout-card a.nav-link {
+        font-size: 1rem;
+        color: #495057;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .login-logout-card .card-body {
+        padding: 10px 20px;
+    }
+
+
+
+/* MY STYLES */
+
+a {
+    text-decoration: none;
+}
+
+
+
+.my_card_panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.my_card {
+    border-radius: 16px;
+    width: 330px;
+    margin: 20px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.my_card_desc {
+    padding: 20px;
+}
+
+.my_card_image_box {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+    .my_card_image_box img {
+        width: 100%
+    }
+
+.drawer-panel, .side-drawer, .drawer-content-area {
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.drawer-panel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.side-drawer {
+    position: absolute;
+    width: 250px;
+    height: 100vh;
+    background-color: #cccccc;
+}
+
+.drawer-content-area-inner {
+    margin-left: 260px;
+}
+
+.auth-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-panel-inner {
+    max-width: 500px;
+    min-width: 400px;
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.auth-panel-inner form p input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #dddddd;
+}
+
+.auth-panel-inner form button {
+    width: 100%;
+}
+
+.flex-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#nav-div {
+    position: relative;
+}
+
+.pull-to-right {
+    position: absolute;
+    right: 20px;
+}
+
+.congrat-box {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.display-table {
+    width: 100%;
+}
+
+.display-table thead {
+    background: #555555;
+    color: white;
+    padding: 10px;
+}
+
+.display-table thead th {
+    padding: 10px;
+}
+
+.display-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+
+footer {
+    color: black;   
+}
+
+@media screen and (max-width: 600px) {
+    .tab-panel  {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.review-box{
+    line-height: 20px;
+    padding: inherit;
+    padding-bottom: 10px;
+}
+
+.horizon-line {
+    hr
+}

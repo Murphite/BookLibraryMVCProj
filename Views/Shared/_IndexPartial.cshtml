@@ -1,0 +1,144 @@
+﻿<style>
+    body, h1 {
+        font-family: "Raleway", sans-serif;
+    }
+
+    body, html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hr-line {
+        border: 2px solid #000;
+    }
+
+    .w3-top {
+        position: fixed;
+        width: 100%;
+        z-index: 1000; /* Adjust the z-index as needed */
+    }
+
+    .navbar-nav .nav-link {
+        color: white !important;
+    }
+
+    .navbar-brand {
+        color: white !important;
+    }
+
+    .two-rounded-border {
+        position: relative;
+        border-radius: 25px; /* Adjust the border-radius based on your preference */
+        padding: 10px 68px; /* Adjust padding as needed */
+        border: 2px solid #333; /* Border color */
+        color: black;
+        font-size: 20px;
+        width: 58px;
+        text-align: left; /* Center the text */
+        margin: 15px;
+        /* Add a black circle */
+        &::before
+
+    {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        width: 30px; /* Diameter of the black circle */
+        height: 30px;
+        background-color: #333; /* Black circle color*/
+        border-radius: 50%;
+        padding-right: 10px;
+    }
+    /* Add a white circle inside the black circle */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        width: 15px;
+        /* Diameter of the white circle */
+        height: 15px;
+        background-color: #fff; /* White circle color, you can change this */
+        border-radius: 50%;
+    }
+
+    } /* Missing closing brace here */
+
+    .one-rounded-border {
+        position: relative;
+        border-radius: 25px; /* Adjust the border-radius based on your preference */
+        padding: 10px 58px; /* Adjust padding as needed */
+        border: 2px solid #333; /* Border color */
+        color: black;
+        font-size: 20px;
+        width: 58px;
+        margin: 15px;
+        text-align: center;
+        /* Add a black circle */
+        &::before
+
+    {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        width: 25px; /* Diameter of the circle */
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid #333; /* Black border around the circle */
+    }
+
+    .borderMe {
+        border: 1px solid grey;
+    }
+
+    #menu {
+        padding-top: 20px;
+    }
+
+    #myNav {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid grey;
+        height: 100px;
+    }
+
+    /* .button1{
+        position:absolute;
+        left: 300px;
+
+    } */
+
+    #menu {
+        padding-top: 40px;
+    }
+
+</style>
+
+<partial name="_NavbarPartial" ; />
+
+<header id="myNav">
+    <!-- Header -->
+    <div class="w3-container w3-center" >
+        <p class="p-header"><b>Wish to Search</b> <button type="button" class="two-rounded-border">Books</button> or <button class="one-rounded-border">CDs</button> Only available copies will display</p>
+    </div>
+
+
+    <!-- Search Bar -->
+    <div class="search-bar horizon-line">
+        <hr />
+       <div>
+            <input class="button1" type="search" placeholder="Winning in the digital age" aria-label="Search">
+       </div> 
+       <div>
+            <button class="btn-2 " style="background-color:black; color:white" type="submit">Search</button>
+       </div>
+    </div>    
+</header>
+

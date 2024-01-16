@@ -1,0 +1,91 @@
+﻿@model ManageUserVM
+@{
+}
+
+
+<h2>All Users</h2>
+<table class="display-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.TableData.Any())
+        {
+            <div>No record added yet!</div>
+        }
+        else
+        {
+            @foreach (var user in Model.TableData)
+            {
+                <tr>
+                    <td>@user.FirstName @user.LastName</td>
+                    <td>@user.Email</td>
+                    <td class="flex-btw">
+                        <a asp-action="ManageUser" asp-controller="Dashboard" asp-route-userId="@user.Id">View   </a>
+                        <a asp-action="" asp-controller="">Edit   </a>
+                        <form method="post" asp-action="DeleteUser" asp-controller="Dashboard" asp-route-userId="@user.Id">
+                            <button style="border:none; outline:none; cursor:pointer; color:skyblue;"
+                                    onclick="return confirm('do you want to continue?')" type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@if (Model.UserDetail != null)
+{
+    <div class="detail-box">
+        <div class="left-box">
+            <div>
+                @* <img src="@Model.UserDetail.PhotoUrl" /> *@
+                <div>
+                    <p>
+                        <div>Name</div>
+                        <div>@Model.UserDetail.FirstName @Model.UserDetail.LastName</div>
+                    </p>
+                    <p>
+                        <div>Email </div>
+                        <div>@Model.UserDetail.Email</div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="right-box">
+            <p>
+                <div class="flex-btw">
+                    <div>User's Roles</div>
+                    <div><button id="add-user-role-btn" class="btn btn-primary">Add New User Role</button></div>
+                </div>
+                <br />
+                <div class="new-user-role-panel hide" id="new-user-role-panel">
+                    <h2>Add New Role</h2>
+                    <form method="post" asp-action="ManageUser" asp-controller="Dashboard" asp-route-userId="@Model.UserDetail.Id">
+                        <input asp-for="RoleName" placeholder="Role name" />
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+                <br />
+                <div>
+                    <ul>
+                        @foreach (var role in @Model.UserDetail.Roles)
+                        {
+                            <li>
+                                @role.ToUpper() &nbsp; &nbsp;
+                                <a asp-action="" asp-controller="">Edit</a> |
+                                <a asp-action="" asp-controller="">Delete</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </p>
+        </div>
+    </div>
+}

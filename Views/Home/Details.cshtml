@@ -1,0 +1,79 @@
+﻿
+@model BookLibrary.Models.ViewModels.DetailsVM
+
+
+@{
+    string picNew = "~/" + @Model.CoverImageUrl;
+}
+
+<style>
+    .detail-btn {
+        display: flex;
+        justify-content: center;
+    }
+</style>
+
+
+
+<div class="detail-btn" style="padding-top: 50px;">
+    <a href="#" class="btn-1" style="margin-right: 40px;">New Release</a>
+    <a href="#" class="btn-1" style="margin-right: 40px;">Most Popular</a>
+    <a href="#" class="btn-1" style="margin-right: 40px;">Browse Genres</a>
+    <a href="#" class="btn-1" style="margin-right: 40px;">Advanced Search</a>
+</div>
+
+<div class="p-left" style="margin: 50px 0 0 15px;">
+    <p>Showing <b>1</b> result for <b>Winning in the Digital Age</b></p>
+</div>
+
+<section>
+    <div class="side-bar">
+        <h5><b>Winning Digital Age</b></h5>
+        <p>
+            <span>Available Copies:</span> <b>@Model.AvailableCopies</b>   Copies In Library:<b> @Model.CopiesInLibrary</b>   Copies Out of Library: <b>@Model.CopiesOutLibrary</b>  
+        </p>
+        <p><span>Genre:</span> <b>@Model.GenreType</b></p>
+        <p><span>Author:</span> <b>@Model.Author</b></p>
+        <p><span>Language: </span> <b>@Model.Language</b></p>
+        <p><span>Publisher:</span> <b>@Model.Publisher</b></p>
+        <p><span>Published Date:</span> <b>@Model.PublishedDate</b></p>
+        <p><span>Added to Library:</span> <b>20th October 2023</b></p>
+        <p><span>ISBN:</span> <b>@Model.ISBN</b></p>
+        <p><span>Pages:</span><b>@Model.Pages</b></p>
+        <p><span>Description: </span><b>@Model.Description</b><br /></p>
+        <p><b>Read More</b></p>
+
+        <p style="padding-right: 60px">e-Version <b><span style="font-size: 40px">@Model.EVersion</span> <span><a class="btn-1" style="background-color: black; color: white;">Read Now</a></span>  <span><a class="btn-1">Download</a></span> </b></p>
+        <div class="star-rating" data-rating="3">
+            <span></span><span></span><span></span><span></span><span></span> <b>3</b>
+        </div>
+        <br />
+        <br />
+
+        <h3>Reviews</h3>
+
+        <div class="review-box">
+            <h5><b>Good to read</b></h5>
+            <p>India art and culture 3 Rd edition book was good for those who are preparing for civil service examination, very god book have to read one.</p>
+            <p><span>Rajesh Dec 2020</span></p>
+        </div>
+        
+        <div class="review-box">
+            <h5><b>Simply awesome</b></h5>
+            <p>Printing was clear and also having practice questions for prelims and mains..very good book have to read once.</p>
+            <p><span>Rajesh Dec 2020</span></p>
+        </div>
+
+        <div class="review-box">
+            <h5><b>Classy product</b></h5>
+            <p>An amazing book to know about the various cultures and arts of the people in India.</p>
+            <p><span>Rajesh Dec 2020</span></p>
+        </div>
+    </div>
+
+    <div>
+        <img class="main-block" src="@picNew" asp-append-version />
+    </div>
+</section>
+
+

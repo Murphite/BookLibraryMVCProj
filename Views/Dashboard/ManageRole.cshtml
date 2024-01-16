@@ -1,0 +1,56 @@
+﻿@model ManageRoleVM
+@{
+}
+
+
+<div class="flex-btw" >
+    <h2>All Roles</h2>
+    <button id="add-role-btn" type="button" class="btn btn-primary">Add New Role</button>
+</div>
+<table class="display-table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null || !Model.RolesToReturn.Any())
+        {
+            <div>No record added yet!</div>
+        }
+        else
+        {
+            @foreach (var role in Model.RolesToReturn)
+            {
+                <tr>
+                    <td>@role.Id</td>
+                    <td>@role.Name</td>
+                    <td class="flex-btw">
+                        <a asp-action="" asp-controller="">View   </a>
+                        <a asp-action="" asp-controller="">Edit   </a>
+                        <form method="post" asp-action="DeleteRole" asp-controller="Dashboard" asp-route-roleId="@role.Id">
+                            <button style="border:none; outline:none; cursor:pointer; color:skyblue;"
+                                    onclick="return confirm('do you want to continue?')" type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<br />
+<br />
+<br />
+<div class="new-role-panel hide" id="new-role-panel">
+    <h2>Add New Role</h2>
+    <form method="post" asp-action="ManageRole" asp-controller="Dashboard">
+        <input asp-for="RoleName" placeholder="Role name" />
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+</div>

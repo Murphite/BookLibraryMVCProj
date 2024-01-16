@@ -1,0 +1,39 @@
+﻿@model UserToRegisterVM
+@{
+}
+
+<style>
+    body {
+        background: #eeeeee;
+    }
+</style>
+
+
+<div class="container">
+    <main role="main" class="pb-3 mt-4">
+        <div class="auth-panel">
+            <div class="auth-panel-inner">
+                <div style="height: 100px;" class="flex-btn">
+                    <h2>Register here...</h2>
+                    <a asp-controller="Home" asp-action="Index">back to home</a>
+                </div>@* 
+                <div asp-validation-summary="All"></div> *@
+                <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+
+                <form method="post" asp-action="Register" asp-controller="Account">
+                    <p><input asp-for="FirstName" placeholder="First name" autocomplete="off" /></p>
+                    <p><input asp-for="LastName" placeholder="Last name" autocomplete="off" /></p>
+                    <p><input asp-for="Email" placeholder="Email" autocomplete="off" /></p>
+                    <p><input asp-for="PhoneNumber" placeholder="Phone number" autocomplete="off" /></p>
+                    <p><input asp-for="Password" placeholder="Password" autocomplete="off" /></p>
+                    <p><input asp-for="ConfirmPassword" placeholder="ConfirmPassword" autocomplete="off" /></p>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+                <p style="padding-top: 20px;">
+                    Already have an account? Login <a asp-action="Login" asp-controller="Account">here</a>
+                </p>
+
+            </div>
+        </div>
+    </main>
+</div>

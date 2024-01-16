@@ -1,0 +1,130 @@
+﻿
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm mb-3 fixed-top card" style="background: black;">
+    <div class="container-fluid">
+        <a class="navbar-brand  text-white" asp-area="" asp-controller="Home" asp-action="Index">BookApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">                
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                @if (User.IsInRole("admin"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Book" asp-action="Services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" asp-area="" asp-controller="Dashboard" asp-action="ManageUser">Dashboard</a>
+                    </li>
+                }
+
+                <li class="nav-thumbnail">
+                    <div class="pull-to-right">
+                       
+
+                        @if (_signInMgr.IsSignedIn(User))
+                        {
+                            <a style="color: skyblue;" asp-action="Logout" asp-controller="Account">
+                                @{
+                                    var user = _userMgr.GetUserAsync(User).Result;
+                                }
+                                Logout @user.Email
+                            </a>
+                        }
+                        @* @if(ViewBag.IsLoggedOut) *@
+                        else
+                        {
+                            <ul class="navbar-nav flex-grow-1">
+                                <li>
+                                    <a class="nav-link text-dark" asp-area="" asp-action="Register" asp-controller="Account">Register</a>
+                                </li>
+                                <li>
+                                    <a class="btn btn-primary" asp-action="Login" asp-controller="Account">
+                                        Login
+                                    </a>                              
+
+                                </li>
+                            </ul>
+                        }      
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+@* <style>
+    body, h1 {
+        font-family: "Raleway", sans-serif;
+    }
+
+    body, html {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hr-line {
+        border: 2px solid #000;
+    }
+
+    .w3-top {
+        position: fixed;
+        width: 100%;
+        z-index: 1000; /* Adjust the z-index as needed */
+    }
+
+    .navbar-nav .nav-link {
+        color: black !important;
+    }
+
+    .navbar-brand {
+        color: black !important;
+    }
+
+</style> *@
+<!-- Navbar (sit on top) -->
+@*  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding">
+    <a class="w3-bar-item w3-button" asp-controller="Home" asp-action="Index"><b>Home</b> </a>
+    <a class="w3-button" asp-controller="Book" asp-action="Services">Services</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-bar-item w3-button">
+    @* <a class="w3-button" asp-controller="Home" asp-action="Index" class="w3-bar-item w3-button">Sign In</a>
+    <a class="w3-button" asp-controller="Home" asp-action="Index" class="w3-bar-item w3-button">Favorites</a>
+    </div>
+    </div>
+    </div> *@
+@* <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BookApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Book" asp-action="Services">Services</a>
+                </li>
+                @* <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    <partial name="_LoginPartial" ; />
+</nav>
+*@
+

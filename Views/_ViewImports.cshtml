@@ -1,0 +1,14 @@
+﻿@using BookLibrary
+@using BookLibrary.Models
+@using BookLibrary.Models.Entities
+@using BookLibrary.Models.ViewModels
+@using BookLibrary.Data
+@using BookLibrarySoln.Services
+@using BookLibrarySoln.Models.ViewModels
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@using BookLibrarySoln.Models.Entities;
+@inject SignInManager<AppUser> _signInMgr;
+@inject UserManager<AppUser> _userMgr;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
